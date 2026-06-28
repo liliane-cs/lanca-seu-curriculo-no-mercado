@@ -1,0 +1,28 @@
+.secao-formacao {
+  padding: var(--espaco-sm) 0;
+}
+
+.item-formacao {
+  padding: var(--espaco-lg);
+  background-color: var(--cor-superficie);
+  border: 1px solid var(--cor-divisor);
+  border-radius: var(--raio-borda);
+  position: relative;
+  transition: border-color var(--transicao);
+}
+
+.item-formacao:hover {
+  border-color: var(--cor-texto-secundario);
+}
+
+.grupo-campos-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-md);
+}
+
+@media (max-width: 48rem) {
+  .grupo-campos-form {
+    grid-template-columns: 1fr;
+  }
+}

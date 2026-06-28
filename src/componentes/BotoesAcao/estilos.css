@@ -1,0 +1,65 @@
+.botoes-acao-container {
+  display: flex;
+  gap: var(--espaco-md);
+  width: 100%;
+  margin-bottom: var(--espaco-lg);
+  flex-shrink: 0;
+}
+
+.botao-acao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-sm);
+  flex: 1;
+  padding: var(--espaco-sm) var(--espaco-lg);
+  border-radius: var(--raio-borda);
+  font-size: 0.875rem; /* Rótulos de campo/botoes: 0.875rem, peso 500 */
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transicao);
+}
+
+/* Secundário: fundo transparente, borda var(--cor-divisor), texto primário */
+.botao-melhorar,
+.botao-adaptar {
+  background: transparent;
+  border: 1px solid var(--cor-divisor);
+  color: var(--cor-texto-primario);
+}
+
+.botao-melhorar:hover,
+.botao-adaptar:hover {
+  background-color: var(--cor-superficie-hover);
+  border-color: var(--cor-texto-secundario);
+}
+
+.botao-adaptar.ativo {
+  background-color: var(--cor-superficie-hover);
+  border-color: var(--cor-destaque);
+  color: var(--cor-destaque);
+}
+
+/* Primário: fundo var(--cor-destaque), texto branco, com leve destaque em azul */
+.botao-exportar {
+  background-color: var(--cor-destaque);
+  border: 1px solid var(--cor-destaque);
+  color: #ffffff;
+}
+
+.botao-exportar:hover {
+  background-color: var(--cor-destaque-hover);
+  border-color: var(--cor-destaque-hover);
+}
+
+.botao-acao:focus-visible {
+  outline: 2.5px solid var(--cor-destaque);
+  outline-offset: 1px;
+}
+
+@media (max-width: 48rem) {
+  .botoes-acao-container {
+    flex-direction: column;
+    gap: var(--espaco-sm);
+  }
+}

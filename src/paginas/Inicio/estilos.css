@@ -1,0 +1,60 @@
+/* Layout estrutural obrigatório */
+
+.layout {
+  display: grid;
+  grid-template-rows: var(--altura-cabecalho) 1fr;
+  height: 100vh;
+}
+
+.area-principal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+.coluna-editor,
+.coluna-previa {
+  overflow-y: auto;
+  padding: var(--espaco-xl);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Divisor sutil entre as colunas */
+.coluna-editor {
+  border-right: 1px solid var(--cor-divisor);
+}
+
+.coluna-previa {
+  gap: var(--espaco-md);
+}
+
+.painel-dinamico-direita {
+  flex: 1;
+}
+
+/* Responsivo para telas menores */
+@media (max-width: 48rem) {
+  .layout {
+    grid-template-rows: auto;
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .area-principal {
+    grid-template-columns: 1fr;
+    overflow-y: visible;
+  }
+
+  .coluna-editor,
+  .coluna-previa {
+    height: auto;
+    overflow-y: visible;
+    padding: var(--espaco-md);
+  }
+
+  .coluna-editor {
+    border-right: none;
+    border-bottom: 1px solid var(--cor-divisor);
+  }
+}

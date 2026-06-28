@@ -1,0 +1,127 @@
+.editor-curriculo-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-lg);
+  height: 100%;
+}
+
+.area-importacao {
+  display: flex;
+  flex-direction: column;
+}
+
+.botao-importar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-sm);
+  width: 100%;
+  padding: var(--espaco-sm) var(--espaco-lg);
+  background-color: var(--cor-destaque);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--raio-borda);
+  font-weight: 500;
+  font-size: 0.9375rem; /* Corpo / input: 0.9375rem, peso 400 (500 for buttons) */
+  cursor: pointer;
+  transition: var(--transicao);
+}
+
+.botao-importar:hover:not(:disabled) {
+  background-color: var(--cor-destaque-hover);
+}
+
+.botao-importar:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.acordeao-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+  flex: 1;
+}
+
+.acordeao-item {
+  border: 1px solid var(--cor-divisor);
+  border-radius: var(--raio-borda);
+  background-color: var(--cor-superficie);
+  overflow: hidden;
+  transition: border-color var(--transicao);
+}
+
+.acordeao-item.ativo {
+  border-color: var(--cor-texto-secundario);
+}
+
+.acordeao-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: var(--espaco-md) var(--espaco-lg);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--cor-texto-primario);
+  transition: var(--transicao);
+}
+
+.acordeao-header:hover {
+  background-color: var(--cor-superficie-hover);
+}
+
+.titulo-secao-combo {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-md);
+}
+
+.icone-cor-secao {
+  color: var(--cor-destaque);
+}
+
+.titulo-secao-texto {
+  font-size: 1rem; /* Títulos de seção: 1rem, peso 600 */
+  font-weight: 600;
+}
+
+.chevron-seta-icon {
+  color: var(--cor-texto-secundario);
+  transition: transform var(--transicao);
+}
+
+.chevron-seta-icon.rotacionado {
+  transform: rotate(180deg);
+}
+
+.acordeao-conteudo {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease-out;
+}
+
+.acordeao-conteudo.visivel {
+  max-height: 120rem; /* safe height limit for expansion */
+}
+
+.conteudo-interno {
+  padding: var(--espaco-lg);
+  border-top: 1px solid var(--cor-divisor);
+  background-color: var(--cor-superficie);
+}
+
+.animacao-giro {
+  animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

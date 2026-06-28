@@ -1,0 +1,55 @@
+.secao-dados-pessoais {
+  padding: var(--espaco-sm) 0;
+}
+
+.grupo-campos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-md);
+}
+
+.campo-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-xs);
+  box-sizing: border-box;
+}
+
+.campo-container label {
+  font-size: 0.875rem; /* Rótulos de campo: 0.875rem, peso 500 */
+  font-weight: 500;
+  color: var(--cor-texto-secundario);
+}
+
+.campo-container input,
+.campo-container textarea {
+  width: 100%;
+  padding: var(--espaco-sm) var(--espaco-md);
+  font-size: 0.9375rem; /* Corpo / input: 0.9375rem, peso 400 */
+  font-weight: 400;
+  background-color: var(--cor-superficie);
+  border: 1px solid var(--cor-divisor);
+  border-radius: var(--raio-borda);
+  color: var(--cor-texto-primario);
+  box-sizing: border-box;
+  transition: border-color var(--transicao), background-color var(--transicao);
+}
+
+.campo-container input::placeholder,
+.campo-container textarea::placeholder {
+  color: var(--cor-texto-secundario);
+  opacity: 0.6;
+}
+
+.campo-container input:hover,
+.campo-container textarea:hover {
+  border-color: var(--cor-texto-secundario);
+  background-color: var(--cor-superficie-hover);
+}
+
+.campo-container input:focus,
+.campo-container textarea:focus {
+  outline: none;
+  border-color: var(--cor-destaque);
+  background-color: var(--cor-superficie);
+}

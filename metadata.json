@@ -1,0 +1,6 @@
+{
+  "name": "Lança",
+  "description": "Editor e visualizador de currículos acessível com adaptação visual.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

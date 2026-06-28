@@ -1,0 +1,193 @@
+.previa-curriculo-folha {
+  background-color: var(--cor-superficie);
+  border: 1px solid var(--cor-divisor);
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-xl);
+  min-height: 29.7cm; /* Proporção A4 aproximada para visualização real */
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-lg);
+  box-shadow: var(--sombra-sutil);
+  transition: background-color var(--transicao), border-color var(--transicao);
+}
+
+.curriculo-topo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+}
+
+.curriculo-nome {
+  font-size: 1.75rem; /* Título principal: 1.75rem, peso 700 */
+  font-weight: 700;
+  color: var(--cor-texto-primario);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.curriculo-titulo-cargo {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--cor-destaque);
+  margin-top: -0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.curriculo-contatos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-xs) var(--espaco-md);
+}
+
+.contato-item {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-xs);
+  font-size: 0.8125rem; /* Texto auxiliar: 0.8125rem */
+  color: var(--cor-texto-secundario);
+}
+
+.placeholder-text {
+  color: var(--cor-texto-secundario);
+  opacity: 0.5;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.curriculo-divisor-geral {
+  height: 1px;
+  background-color: var(--cor-divisor);
+  width: 100%;
+}
+
+.curriculo-secao {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+}
+
+.titulo-secao-previa {
+  font-size: 0.875rem; /* Rótulos: 0.875rem, peso 500 (used for Section Headers in UPPERCASE) */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cor-destaque);
+  border-bottom: 1px solid var(--cor-divisor);
+  padding-bottom: var(--espaco-xs);
+}
+
+.conteudo-perfil {
+  font-size: 0.9375rem; /* Corpo: 0.9375rem, peso 400 */
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--cor-texto-primario);
+  white-space: pre-line;
+}
+
+.previa-lista-itens {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-md);
+}
+
+.previa-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-xs);
+}
+
+.previa-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--espaco-md);
+}
+
+.previa-item-cargo {
+  font-size: 0.9375rem; /* Corpo: 0.9375rem, peso 600 */
+  font-weight: 600;
+  color: var(--cor-texto-primario);
+}
+
+.previa-item-curso {
+  font-size: 0.9375rem; /* Corpo: 0.9375rem, peso 600 */
+  font-weight: 600;
+  color: var(--cor-texto-primario);
+}
+
+.previa-item-empresa,
+.previa-item-instituicao {
+  font-size: 0.875rem; /* Rótulo: 0.875rem, peso 500 */
+  font-weight: 500;
+  color: var(--cor-texto-secundario);
+}
+
+.previa-item-periodo {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-xs);
+  font-size: 0.8125rem; /* Texto auxiliar: 0.8125rem */
+  color: var(--cor-texto-secundario);
+  white-space: nowrap;
+}
+
+.previa-item-descricao {
+  font-size: 0.875rem; /* Corpo: 0.875rem */
+  line-height: 1.5;
+  color: var(--cor-texto-primario);
+  white-space: pre-line;
+}
+
+.previa-habilidades-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-xs);
+}
+
+.previa-habilidade-tag {
+  font-size: 0.8125rem; /* Texto auxiliar: 0.8125rem */
+  font-weight: 500;
+  padding: var(--espaco-xs) var(--espaco-sm);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-primario);
+  border: 1px solid var(--cor-divisor);
+  border-radius: var(--raio-borda);
+}
+
+.previa-vazia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-md);
+  flex: 1;
+  padding: var(--espaco-2xl) var(--espaco-md);
+  text-align: center;
+  color: var(--cor-texto-secundario);
+}
+
+.icone-previa-vazia {
+  color: var(--cor-divisor);
+}
+
+.previa-vazia p {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.dica-previa-vazia {
+  font-size: 0.8125rem !important; /* Texto auxiliar: 0.8125rem */
+  opacity: 0.8;
+  max-width: 20rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 48rem) {
+  .previa-curriculo-folha {
+    padding: var(--espaco-md);
+  }
+  .previa-item-header {
+    flex-direction: column;
+    gap: var(--espaco-xs);
+  }
+}

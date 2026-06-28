@@ -1,0 +1,53 @@
+@import "./variaveis.css";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--familia-fonte);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-primario);
+  font-size: var(--fonte-base);
+  transition: background-color var(--transicao), color var(--transicao);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  line-height: 1.5;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* Custom focus styles for web accessibility */
+*:focus-visible {
+  outline: 2.5px solid var(--cor-destaque);
+  outline-offset: 1px;
+}
+
+/* Global scrollbars styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cor-divisor);
+  border-radius: var(--raio-borda);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cor-texto-secundario);
+}
