@@ -1,5 +1,7 @@
 import React from "react";
 import { Sparkles, FileText, FileDown } from "lucide-react";
+import SeletorTemplate from "../SeletorTemplate";
+import { TemplateCurriculo } from "../../utilitarios/templateCurriculo";
 import "./estilos.css";
 
 interface BotoesAcaoProps {
@@ -7,6 +9,8 @@ interface BotoesAcaoProps {
   onAtivarAdaptacao: () => void;
   onExportarPDF: () => void;
   adaptacaoAtiva: boolean;
+  templateAtual: TemplateCurriculo;
+  onAlterarTemplate: (t: TemplateCurriculo) => void;
 }
 
 export default function BotoesAcao({
@@ -14,6 +18,8 @@ export default function BotoesAcao({
   onAtivarAdaptacao,
   onExportarPDF,
   adaptacaoAtiva,
+  templateAtual,
+  onAlterarTemplate,
 }: BotoesAcaoProps) {
   return (
     <div className="botoes-acao-container" id="botoes-acao-secao">
@@ -36,6 +42,11 @@ export default function BotoesAcao({
         <FileText size={16} />
         <span>Adaptar para Vaga</span>
       </button>
+
+      <SeletorTemplate
+        templateAtual={templateAtual}
+        onAlterarTemplate={onAlterarTemplate}
+      />
 
       <button
         type="button"

@@ -1,13 +1,15 @@
 import React from "react";
 import { Curriculo } from "../../tipos/curriculo";
 import { Mail, Phone, MapPin, Linkedin, Github, Calendar, Briefcase } from "lucide-react";
+import { TemplateCurriculo } from "../../utilitarios/templateCurriculo";
 import "./estilos.css";
 
 interface PreviaDocurriculoProps {
   curriculo: Curriculo;
+  template?: TemplateCurriculo;
 }
 
-export default function PreviaDocurriculo({ curriculo }: PreviaDocurriculoProps) {
+export default function PreviaDocurriculo({ curriculo, template = "classico" }: PreviaDocurriculoProps) {
   const { dadosPessoais, perfilProfissional, experiencias, formacao, habilidades } = curriculo;
 
   const temDadosContato =
@@ -18,7 +20,7 @@ export default function PreviaDocurriculo({ curriculo }: PreviaDocurriculoProps)
     dadosPessoais.github;
 
   return (
-    <div className="previa-curriculo-folha" id="previa-curriculo-folha-id">
+    <div className={`previa-curriculo-folha template-${template}`} id="previa-curriculo-folha-id">
       {/* Cabeçalho do Currículo */}
       <header className="curriculo-topo" id="curriculo-topo-id">
         <h2 className="curriculo-nome" id="curriculo-nome-id">
