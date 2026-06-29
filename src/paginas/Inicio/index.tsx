@@ -22,6 +22,11 @@ import {
   TAMANHO_FONTE_MAXIMO,
   PASSO_FONTE,
 } from "../../utilitarios/acessibilidade";
+import {
+  TemplateCurriculo,
+  obterTemplateSalvo,
+  salvarTemplate,
+} from "../../utilitarios/templateCurriculo";
 import "./estilos.css";
 
 // Currículo de exemplo: só é aplicado quando o usuário clica em "Preencher Exemplo".
@@ -108,12 +113,15 @@ export default function Inicio() {
 
   const [tema, setTema] = useState<Tema>("claro");
   const [tamanhoFonte, setTamanhoFonte] = useState<number>(16);
+  const [template, setTemplate] = useState<TemplateCurriculo>("classico");
 
   useEffect(() => {
     const temaSalvo = obterTemaSalvo();
     const fonteSalva = obterTamanhoFonteSalvo();
+    const templateSalvo = obterTemplateSalvo();
     setTema(temaSalvo);
     setTamanhoFonte(fonteSalva);
+    setTemplate(templateSalvo);
     aplicarTemaAoHTML(temaSalvo);
     aplicarTamanhoFonteAoHTML(fonteSalva);
   }, []);
@@ -123,6 +131,11 @@ export default function Inicio() {
     setTema(novoTema);
     salvarTema(novoTema);
     aplicarTemaAoHTML(novoTema);
+  };
+
+  const alterarTemplate = (novoTemplate: TemplateCurriculo) => {
+    setTemplate(novoTemplate);
+    salvarTemplate(novoTemplate);
   };
 
   const aumentarFonte = () => {
@@ -191,7 +204,7 @@ export default function Inicio() {
         const novoPerfil = await melhorarSecao(
           "personalizado",
           curriculo.perfilProfissional +
-            `\n\n(Melhorado com foco em: ${textoLivre})`,
+          `\n\n(Melhorado com foco em: ${textoLivre})`,
         );
         setCurriculo((prev) => ({
           ...prev,
@@ -260,6 +273,8 @@ export default function Inicio() {
             }
             onExportarPDF={tratarExportarPDF}
             adaptacaoAtiva={painelAdaptacaoAtivo}
+            templateAtual={template}
+            onAlterarTemplate={alterarTemplate}
           />
 
           {/* Conteúdo dinâmico */}
@@ -272,7 +287,7 @@ export default function Inicio() {
               />
             )}
             <div style={{ display: painelAdaptacaoAtivo ? "none" : "block" }}>
-              <PreviaDocurriculo curriculo={curriculo} />
+              <PreviaDocurriculo curriculo={curriculo} template={template} />
             </div>
           </div>
         </section>

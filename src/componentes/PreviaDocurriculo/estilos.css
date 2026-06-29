@@ -191,3 +191,181 @@
     gap: var(--espaco-xs);
   }
 }
+
+/* ──────────────────────────────────────────────
+   TEMPLATE: MODERNO  (sidebar roxa à esquerda)
+   ────────────────────────────────────────────── */
+.template-moderno {
+  background-color: var(--cor-superficie);
+  display: grid !important;
+  grid-template-columns: 180px 1fr;
+  gap: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  border-radius: var(--raio-borda);
+}
+
+/* sidebar: todos os filhos diretos que são a barra lateral ficam na col 1 */
+.template-moderno .curriculo-topo {
+  grid-column: 1;
+  grid-row: 1 / 99;
+  background: linear-gradient(160deg, #5b21b6 0%, #7c3aed 60%, #a855f7 100%);
+  padding: var(--espaco-xl) var(--espaco-md);
+  gap: var(--espaco-md);
+  border-radius: 0;
+  overflow: hidden;        /* impede que qualquer filho ultrapasse a sidebar */
+  min-width: 0;            /* permite que o grid-item encolha corretamente */
+}
+
+.template-moderno .curriculo-nome {
+  font-size: 1.125rem;
+  color: #ffffff;
+  letter-spacing: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.template-moderno .curriculo-titulo-cargo {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.template-moderno .curriculo-contatos {
+  flex-direction: column;
+  gap: var(--espaco-sm);
+  margin-top: var(--espaco-md);
+  width: 100%;             /* garante que o container não ultrapasse a sidebar */
+}
+
+.template-moderno .contato-item {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.75rem;
+  min-width: 0;            /* permite que o flex-item encolha */
+  width: 100%;
+  align-items: flex-start; /* ícone alinha ao topo quando o texto quebra */
+}
+
+/* O span de texto dentro do contato-item deve quebrar */
+.template-moderno .contato-item > span {
+  word-break: break-all;
+  overflow-wrap: break-word;
+  min-width: 0;
+  flex: 1;
+}
+
+/* O ícone SVG nunca deve encolher */
+.template-moderno .contato-item > svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.template-moderno .curriculo-divisor-geral {
+  display: none;
+}
+
+/* conteúdo principal: tudo depois do header fica na col 2 */
+.template-moderno .curriculo-secao {
+  grid-column: 2;
+  padding: var(--espaco-lg) var(--espaco-xl);
+}
+
+/* primeiro .curriculo-secao recebe padding-top extra */
+.template-moderno .curriculo-secao:first-of-type {
+  padding-top: var(--espaco-xl);
+}
+
+.template-moderno .titulo-secao-previa {
+  color: #7c3aed;
+  border-bottom-color: #ddd6fe;
+}
+
+.template-moderno .previa-habilidade-tag {
+  background-color: #f5f3ff;
+  border-color: #ddd6fe;
+  color: #5b21b6;
+}
+
+.template-moderno .previa-vazia {
+  grid-column: 2;
+}
+
+/* ──────────────────────────────────────────────
+   TEMPLATE: ELEGANTE  (verde-esmeralda, serifado)
+   ────────────────────────────────────────────── */
+.template-elegante {
+  background-color: var(--cor-superficie);
+  border-radius: var(--raio-borda);
+  border: 2px solid #0f766e;
+  padding: var(--espaco-2xl) !important;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.template-elegante .curriculo-topo {
+  align-items: center;
+  text-align: center;
+  border-bottom: 3px double #0f766e;
+  padding-bottom: var(--espaco-lg);
+  gap: var(--espaco-xs);
+}
+
+.template-elegante .curriculo-nome {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #0f766e;
+}
+
+.template-elegante .curriculo-titulo-cargo {
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--cor-texto-secundario);
+  margin: 0;
+}
+
+.template-elegante .curriculo-contatos {
+  justify-content: center;
+  gap: var(--espaco-xs) var(--espaco-lg);
+}
+
+.template-elegante .contato-item {
+  font-size: 0.8125rem;
+  color: var(--cor-texto-secundario);
+}
+
+.template-elegante .curriculo-divisor-geral {
+  background-color: #0f766e;
+  height: 2px;
+}
+
+.template-elegante .titulo-secao-previa {
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #0f766e;
+  border-bottom-color: #99f6e4;
+}
+
+.template-elegante .previa-item-cargo,
+.template-elegante .previa-item-curso {
+  font-family: 'Georgia', serif;
+}
+
+.template-elegante .previa-habilidade-tag {
+  background-color: #f0fdfa;
+  border-color: #99f6e4;
+  color: #0f766e;
+  border-radius: 2px;
+}
+
