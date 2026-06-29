@@ -47,12 +47,19 @@ export async function exportarPDF(curriculo: Curriculo): Promise<void> {
 
   await html2pdf()
     .set({
-      margin: 10,
       filename: `${curriculo.dadosPessoais.nome || 'curriculo'}.pdf`,
       image: { type: 'jpeg', quality: 0.98 },
       html2canvas: { scale: 2, useCORS: true },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     })
     .from(elemento)
+    .toPdf()
+    .get('pdf')
+    .then((pdf: any) => {
+      const totalPaginas = pdf.internal.getNumberOfPages();
+      for (let i = totalPaginas; i > 1; i--) {
+        pdf.deletePage(i);
+      }
+    })
     .save();
 }

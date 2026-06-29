@@ -204,7 +204,7 @@ export default function Inicio() {
         const novoPerfil = await melhorarSecao(
           "personalizado",
           curriculo.perfilProfissional +
-            `\n\n(Melhorado com foco em: ${textoLivre})`,
+          `\n\n(Melhorado com foco em: ${textoLivre})`,
         );
         setCurriculo((prev) => ({
           ...prev,

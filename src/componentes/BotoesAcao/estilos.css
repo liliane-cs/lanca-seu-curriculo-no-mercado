@@ -14,7 +14,8 @@
   flex: 1;
   padding: var(--espaco-sm) var(--espaco-lg);
   border-radius: var(--raio-borda);
-  font-size: 0.875rem; /* Rótulos de campo/botoes: 0.875rem, peso 500 */
+  font-size: 0.875rem;
+  /* Rótulos de campo/botoes: 0.875rem, peso 500 */
   font-weight: 500;
   cursor: pointer;
   transition: var(--transicao);
