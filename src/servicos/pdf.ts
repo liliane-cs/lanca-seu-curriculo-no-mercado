@@ -45,7 +45,7 @@ export async function exportarPDF(curriculo: Curriculo): Promise<void> {
 
   const html2pdf = (await import('html2pdf.js')).default;
 
-  await html2pdf()
+  await (html2pdf()
     .set({
       filename: `${curriculo.dadosPessoais.nome || 'curriculo'}.pdf`,
       image: { type: 'jpeg', quality: 0.98 },
@@ -60,6 +60,5 @@ export async function exportarPDF(curriculo: Curriculo): Promise<void> {
       for (let i = totalPaginas; i > 1; i--) {
         pdf.deletePage(i);
       }
-    })
-    .save();
+    }) as any).save();
 }
