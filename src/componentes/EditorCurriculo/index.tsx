@@ -5,7 +5,7 @@ import SecaoPerfilProfissional from "../SecaoPerfilProfissional";
 import SecaoExperiencias from "../SecaoExperiencias";
 import SecaoFormacao from "../SecaoFormacao";
 import SecaoHabilidades from "../SecaoHabilidades";
-import { Upload, ChevronDown, User, FileText, Briefcase, GraduationCap, Award, Loader2 } from "lucide-react";
+import { Upload, ChevronDown, User, FileText, Briefcase, GraduationCap, Award, Loader2, Wand2, Trash2 } from "lucide-react";
 import { importarPDF } from "../../servicos/pdf";
 import "./estilos.css";
 
@@ -14,6 +14,8 @@ interface EditorCurriculoProps {
   onChange: (curriculo: Curriculo) => void;
   secaoAberta: string;
   onAlternarSecao: (secao: string) => void;
+  onLimpar: () => void;
+  onPreencherExemplo: () => void;
 }
 
 export default function EditorCurriculo({
@@ -21,9 +23,20 @@ export default function EditorCurriculo({
   onChange,
   secaoAberta,
   onAlternarSecao,
+  onLimpar,
+  onPreencherExemplo,
 }: EditorCurriculoProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [importando, setImportando] = useState(false);
+
+  const tratarLimparTudo = () => {
+    const confirmado = window.confirm(
+      "Tem certeza que deseja limpar todos os campos do formulário? Essa ação não pode ser desfeita."
+    );
+    if (confirmado) {
+      onLimpar();
+    }
+  };
 
   const tratarUploadPDF = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const arquivo = e.target.files?.[0];
@@ -136,6 +149,28 @@ export default function EditorCurriculo({
             </>
           )}
         </button>
+
+        <div className="area-acoes-formulario" id="area-acoes-formulario-id">
+          <button
+            type="button"
+            onClick={onPreencherExemplo}
+            className="botao-secundario botao-preencher-exemplo"
+            id="btn-preencher-exemplo"
+          >
+            <Wand2 size={16} />
+            <span>Preencher Exemplo</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={tratarLimparTudo}
+            className="botao-secundario botao-limpar-tudo"
+            id="btn-limpar-tudo"
+          >
+            <Trash2 size={16} />
+            <span>Limpar Tudo</span>
+          </button>
+        </div>
       </div>
 
       <div className="acordeao-container" id="acordeao-editor">

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { X, Sparkles, Check, Loader2, FileDown } from "lucide-react";
+import { X, Sparkles, Check, Loader2 } from "lucide-react";
 import { Curriculo } from "../../tipos/curriculo";
 import { analisarCompatibilidade, aplicarSugestoes } from "../../servicos/ia";
-import { exportarPDF } from "../../servicos/pdf";
 import "./estilos.css";
 
 interface PainelAdaptacaoProps {
@@ -66,11 +65,6 @@ export default function PainelAdaptacao({
     } catch (err) {
       console.error("Erro ao aplicar sugestões:", err);
     }
-  };
-
-  const tratarExportarAdaptado = async () => {
-    // TODO: integrar geração e download de PDF com versão adaptada
-    await exportarPDF(curriculo);
   };
 
   const preencherExemploVaga = () => {
@@ -200,15 +194,6 @@ export default function PainelAdaptacao({
                 disabled={sugestoesSelecionadas.length === 0}
               >
                 Aplicar Selecionadas
-              </button>
-
-              <button
-                type="button"
-                className="botao-acao-resultado botao-exportar-adaptado"
-                onClick={tratarExportarAdaptado}
-              >
-                <FileDown size={14} />
-                <span>Exportar Currículo Adaptado</span>
               </button>
             </div>
 

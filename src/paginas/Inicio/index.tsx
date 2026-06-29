@@ -24,7 +24,8 @@ import {
 } from "../../utilitarios/acessibilidade";
 import "./estilos.css";
 
-const CURRICULO_INICIAL: Curriculo = {
+// Currículo de exemplo: só é aplicado quando o usuário clica em "Preencher Exemplo".
+const CURRICULO_EXEMPLO: Curriculo = {
   dadosPessoais: {
     nome: "Guilherme Lança",
     tituloProfissional: "Desenvolvedor Front-end Sênior",
@@ -79,8 +80,25 @@ const CURRICULO_INICIAL: Curriculo = {
   ],
 };
 
+// Currículo vazio: é o estado inicial real do formulário e também o que o botão "Limpar Tudo" aplica.
+const CURRICULO_VAZIO: Curriculo = {
+  dadosPessoais: {
+    nome: "",
+    tituloProfissional: "",
+    email: "",
+    telefone: "",
+    linkedin: "",
+    github: "",
+    localizacao: "",
+  },
+  perfilProfissional: "",
+  experiencias: [],
+  formacao: [],
+  habilidades: [],
+};
+
 export default function Inicio() {
-  const [curriculo, setCurriculo] = useState<Curriculo>(CURRICULO_INICIAL);
+  const [curriculo, setCurriculo] = useState<Curriculo>(CURRICULO_VAZIO);
   const [secaoAberta, setSecaoAberta] = useState<string>("dados");
   const [painelAdaptacaoAtivo, setPainelAdaptacaoAtivo] =
     useState<boolean>(false);
@@ -199,6 +217,14 @@ export default function Inicio() {
     setPainelAdaptacaoAtivo(false);
   };
 
+  const preencherComExemplo = () => {
+    setCurriculo(CURRICULO_EXEMPLO);
+  };
+
+  const limparFormulario = () => {
+    setCurriculo(CURRICULO_VAZIO);
+  };
+
   return (
     <div className="layout" id="lanca-main-layout">
       {/* Cabeçalho */}
@@ -219,6 +245,8 @@ export default function Inicio() {
             onChange={setCurriculo}
             secaoAberta={secaoAberta}
             onAlternarSecao={alternarSecaoAcordeao}
+            onLimpar={limparFormulario}
+            onPreencherExemplo={preencherComExemplo}
           />
         </section>
 
