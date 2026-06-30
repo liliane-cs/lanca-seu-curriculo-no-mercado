@@ -24,7 +24,7 @@
 .campo-container input,
 .campo-container textarea {
   width: 100%;
-  padding: var(--espaco-sm) var(--espaco-md);
+  padding: 0.625rem var(--espaco-md);
   font-size: 0.9375rem; /* Corpo / input: 0.9375rem, peso 400 */
   font-weight: 400;
   background-color: var(--cor-superficie);
@@ -32,7 +32,8 @@
   border-radius: var(--raio-borda);
   color: var(--cor-texto-primario);
   box-sizing: border-box;
-  transition: border-color var(--transicao), background-color var(--transicao);
+  box-shadow: var(--sombra-sutil);
+  transition: border-color var(--transicao), background-color var(--transicao), box-shadow var(--transicao);
 }
 
 .campo-container input::placeholder,
@@ -44,7 +45,6 @@
 .campo-container input:hover,
 .campo-container textarea:hover {
   border-color: var(--cor-texto-secundario);
-  background-color: var(--cor-superficie-hover);
 }
 
 .campo-container input:focus,
@@ -52,4 +52,5 @@
   outline: none;
   border-color: var(--cor-destaque);
   background-color: var(--cor-superficie);
+  box-shadow: 0 0 0 3px var(--cor-destaque-suave);
 }

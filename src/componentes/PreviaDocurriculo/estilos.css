@@ -1,14 +1,15 @@
 .previa-curriculo-folha {
+  position: relative;
   background-color: var(--cor-superficie);
   border: 1px solid var(--cor-divisor);
-  border-radius: var(--raio-borda);
+  border-radius: 10px;
   padding: var(--espaco-xl);
   min-height: 29.7cm; /* Proporção A4 aproximada para visualização real */
   display: flex;
   flex-direction: column;
   gap: var(--espaco-lg);
-  box-shadow: var(--sombra-sutil);
-  transition: background-color var(--transicao), border-color var(--transicao);
+  box-shadow: inset 0 3px 0 0 var(--cor-destaque), var(--sombra-destaque);
+  transition: background-color var(--transicao), border-color var(--transicao), box-shadow var(--transicao);
 }
 
 .curriculo-topo {
@@ -18,19 +19,23 @@
 }
 
 .curriculo-nome {
-  font-size: 1.75rem; /* Título principal: 1.75rem, peso 700 */
-  font-weight: 700;
+  font-family: var(--familia-display);
+  font-size: 2.25rem; /* Título principal em destaque editorial */
+  font-weight: 600;
+  font-optical-sizing: auto;
   color: var(--cor-texto-primario);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
 }
 
 .curriculo-titulo-cargo {
-  font-size: 1.125rem;
-  font-weight: 500;
+  font-size: 0.8125rem;
+  font-weight: 600;
   color: var(--cor-destaque);
-  margin-top: -0.25rem;
-  margin-bottom: 0.25rem;
+  margin-top: 0.125rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .curriculo-contatos {
@@ -67,13 +72,26 @@
 }
 
 .titulo-secao-previa {
-  font-size: 0.875rem; /* Rótulos: 0.875rem, peso 500 (used for Section Headers in UPPERCASE) */
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-sm);
+  font-size: 0.8125rem; /* Rótulos: 0.8125rem, peso 600 */
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--cor-destaque);
+  letter-spacing: 0.12em;
+  color: var(--cor-texto-primario);
   border-bottom: 1px solid var(--cor-divisor);
-  padding-bottom: var(--espaco-xs);
+  padding-bottom: var(--espaco-sm);
+}
+
+.titulo-secao-previa::before {
+  content: "";
+  display: inline-block;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 2px;
+  background-color: var(--cor-destaque);
+  flex-shrink: 0;
 }
 
 .conteudo-perfil {
@@ -119,7 +137,7 @@
 .previa-item-instituicao {
   font-size: 0.875rem; /* Rótulo: 0.875rem, peso 500 */
   font-weight: 500;
-  color: var(--cor-texto-secundario);
+  color: var(--cor-destaque);
 }
 
 .previa-item-periodo {
@@ -141,17 +159,17 @@
 .previa-habilidades-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--espaco-xs);
+  gap: var(--espaco-sm);
 }
 
 .previa-habilidade-tag {
   font-size: 0.8125rem; /* Texto auxiliar: 0.8125rem */
   font-weight: 500;
-  padding: var(--espaco-xs) var(--espaco-sm);
-  background-color: var(--cor-fundo);
-  color: var(--cor-texto-primario);
-  border: 1px solid var(--cor-divisor);
-  border-radius: var(--raio-borda);
+  padding: 0.3125rem var(--espaco-md);
+  background-color: var(--cor-destaque-suave);
+  color: var(--cor-destaque);
+  border: 1px solid transparent;
+  border-radius: 999px;
 }
 
 .previa-vazia {
@@ -203,6 +221,7 @@
   padding: 0 !important;
   overflow: hidden;
   border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-destaque);
 }
 
 /* sidebar: todos os filhos diretos que são a barra lateral ficam na col 1 */
@@ -218,7 +237,9 @@
 }
 
 .template-moderno .curriculo-nome {
+  font-family: var(--familia-fonte);
   font-size: 1.125rem;
+  font-weight: 700;
   color: #ffffff;
   letter-spacing: 0;
   word-break: break-word;
@@ -285,6 +306,10 @@
   border-bottom-color: #ddd6fe;
 }
 
+.template-moderno .titulo-secao-previa::before {
+  background-color: #7c3aed;
+}
+
 .template-moderno .previa-habilidade-tag {
   background-color: #f5f3ff;
   border-color: #ddd6fe;
@@ -304,6 +329,7 @@
   border: 2px solid #0f766e;
   padding: var(--espaco-2xl) !important;
   font-family: 'Georgia', 'Times New Roman', serif;
+  box-shadow: var(--sombra-destaque);
 }
 
 .template-elegante .curriculo-topo {
@@ -355,6 +381,11 @@
   letter-spacing: 0;
   color: #0f766e;
   border-bottom-color: #99f6e4;
+}
+
+.template-elegante .titulo-secao-previa::before {
+  background-color: #0f766e;
+  border-radius: 50%;
 }
 
 .template-elegante .previa-item-cargo,
