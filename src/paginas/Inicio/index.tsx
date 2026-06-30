@@ -6,7 +6,7 @@ import PainelAdaptacao from "../../componentes/PainelAdaptacao";
 import BotoesAcao from "../../componentes/BotoesAcao";
 import SeletorMelhoria from "../../componentes/SeletorMelhoria";
 import { Curriculo } from "../../tipos/curriculo";
-import { melhorarSecao } from "../../servicos/ia";
+import { aprimorarCurriculo } from "../../servicos/ia";
 import { exportarPDF } from "../../servicos/pdf";
 import {
   Tema,
@@ -163,53 +163,28 @@ export default function Inicio() {
   const tratarMelhoriaIA = async (opcao: string, textoLivre?: string) => {
     setMelhorando(true);
     try {
-      if (opcao === "perfil" || opcao === "inteiro") {
-        // TODO: integrar n8n → Groq com a seção selecionada e retornar texto melhorado
-        const novoPerfil = await melhorarSecao(
-          "perfil",
-          curriculo.perfilProfissional,
-        );
-        setCurriculo((prev) => ({
-          ...prev,
-          perfilProfissional: novoPerfil,
-        }));
-      }
+      const mapaSecao: Record<string, string> = {
+        inteiro: "completo",
+        perfil: "perfilProfissional",
+        experiencias: "experiencias",
+        formacao: "formacao",
+        habilidades: "habilidades",
+      };
 
-      if (opcao === "habilidades" || opcao === "inteiro") {
-        // TODO: integrar n8n → Groq com a seção selecionada e retornar texto melhorado
-        const novasHabs = [...curriculo.habilidades];
-        if (!novasHabs.includes("Clean Code")) novasHabs.push("Clean Code");
-        setCurriculo((prev) => ({
-          ...prev,
-          habilidades: novasHabs,
-        }));
-      }
-
-      if (opcao === "experiencias" || opcao === "inteiro") {
-        // TODO: integrar n8n → Groq com a seção selecionada e retornar texto melhorado
-        const expOtimizadas = await Promise.all(
-          curriculo.experiencias.map(async (exp) => ({
-            ...exp,
-            descricao: await melhorarSecao("experiencia", exp.descricao),
-          })),
+      if (opcao === "outro") {
+        const curriculoAtualizado = await aprimorarCurriculo(
+          curriculo,
+          "completo",
+          textoLivre
         );
-        setCurriculo((prev) => ({
-          ...prev,
-          experiencias: expOtimizadas,
-        }));
-      }
-
-      if (opcao === "outro" && textoLivre) {
-        // TODO: integrar n8n → Groq com a seção selecionada e retornar texto melhorado
-        const novoPerfil = await melhorarSecao(
-          "personalizado",
-          curriculo.perfilProfissional +
-          `\n\n(Melhorado com foco em: ${textoLivre})`,
+        setCurriculo(curriculoAtualizado);
+      } else {
+        const secao = mapaSecao[opcao];
+        const curriculoAtualizado = await aprimorarCurriculo(
+          curriculo,
+          secao as any
         );
-        setCurriculo((prev) => ({
-          ...prev,
-          perfilProfissional: novoPerfil,
-        }));
+        setCurriculo(curriculoAtualizado);
       }
 
       setSeletorMelhoriaAberto(false);
@@ -221,7 +196,6 @@ export default function Inicio() {
   };
 
   const tratarExportarPDF = async () => {
-    // TODO: integrar geração e download de PDF via n8n
     await exportarPDF(curriculo);
   };
 

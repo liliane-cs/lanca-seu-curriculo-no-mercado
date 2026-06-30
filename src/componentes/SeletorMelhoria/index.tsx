@@ -22,6 +22,7 @@ export default function SeletorMelhoria({
     { id: "experiencias", label: "Experiências", descricao: "Destacar conquistas profissionais de forma ativa." },
     { id: "habilidades", label: "Habilidades", descricao: "Reorganizar habilidades por relevância de mercado." },
     { id: "outro", label: "Outro Campo / Personalizado", descricao: "Instrução livre para a IA." },
+  
   ];
 
   const handleSubmit = (e: React.FormEvent) => {

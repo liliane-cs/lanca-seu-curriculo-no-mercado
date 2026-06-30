@@ -19,7 +19,10 @@ export default function PainelAdaptacao({
   const [analisando, setAnalisando] = useState(false);
   const [resultado, setResultado] = useState<{
     percentual: number;
-    pontosFortres: string[];
+    compativel: string[];
+    incompativel: string[];
+    pontosFortes: string[];
+    pontosFracos: string[];
     sugestoes: string[];
   } | null>(null);
 
@@ -154,7 +157,7 @@ export default function PainelAdaptacao({
             <div className="secao-resultado-lista">
               <h4 className="titulo-resultado-grupo">Pontos fortes</h4>
               <ul className="lista-pontos-fortes">
-                {resultado.pontosFortres.map((ponto, i) => (
+                {resultado.pontosFortes.map((ponto, i) => (
                   <li key={i} className="item-ponto-forte">
                     <span className="marcador-v-ponto">✓</span>
                     <span>{ponto}</span>
@@ -162,6 +165,20 @@ export default function PainelAdaptacao({
                 ))}
               </ul>
             </div>
+
+            {resultado.pontosFracos.length > 0 && (
+              <div className="secao-resultado-lista">
+                <h4 className="titulo-resultado-grupo">Pontos a melhorar</h4>
+                <ul className="lista-pontos-fortes">
+                  {resultado.pontosFracos.map((ponto, i) => (
+                    <li key={i} className="item-ponto-forte">
+                      <span className="marcador-v-ponto">!</span>
+                      <span>{ponto}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             <div className="secao-resultado-lista">
               <h4 className="titulo-resultado-grupo">Sugestões de melhoria</h4>
