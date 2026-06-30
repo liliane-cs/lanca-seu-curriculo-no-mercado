@@ -4,6 +4,8 @@ Projeto desenvolvido para a disciplina de Inteligência Artificial, com o objeti
 
 A aplicação combina um formulário web (React) com automações de IA construídas em **n8n**, que analisam o currículo, comparam com a descrição da vaga e sugerem melhorias específicas.
 
+![Tela inicial do projeto](./src/assets/home.png)
+
 ## Funcionalidades principais
 
 - **Criação de currículo:** formulário estruturado para preencher dados pessoais, perfil profissional, experiências, formação e habilidades.
