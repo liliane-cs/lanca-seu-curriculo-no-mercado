@@ -1,4 +1,5 @@
 @import "./variaveis.css";
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&display=swap');
 
 * {
   box-sizing: border-box;
@@ -29,14 +30,15 @@ body {
 
 /* Custom focus styles for web accessibility */
 *:focus-visible {
-  outline: 2.5px solid var(--cor-destaque);
-  outline-offset: 1px;
+  outline: 2px solid var(--cor-destaque);
+  outline-offset: 2px;
+  border-radius: 3px;
 }
 
 /* Global scrollbars styling */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -45,9 +47,12 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: var(--cor-divisor);
-  border-radius: var(--raio-borda);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--cor-texto-secundario);
+  background-clip: content-box;
 }

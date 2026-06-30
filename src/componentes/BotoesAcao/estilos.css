@@ -2,7 +2,7 @@
   display: flex;
   gap: var(--espaco-md);
   width: 100%;
-  margin-bottom: var(--espaco-lg);
+  margin-bottom: var(--espaco-xl);
   flex-shrink: 0;
 }
 
@@ -12,31 +12,32 @@
   justify-content: center;
   gap: var(--espaco-sm);
   flex: 1;
-  padding: var(--espaco-sm) var(--espaco-lg);
+  padding: 0.625rem var(--espaco-lg);
   border-radius: var(--raio-borda);
   font-size: 0.875rem;
   /* Rótulos de campo/botoes: 0.875rem, peso 500 */
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: var(--transicao);
 }
 
-/* Secundário: fundo transparente, borda var(--cor-divisor), texto primário */
+/* Secundário: fundo da superfície, borda sutil, ganha cor de destaque no hover */
 .botao-melhorar,
 .botao-adaptar {
-  background: transparent;
+  background: var(--cor-superficie);
   border: 1px solid var(--cor-divisor);
   color: var(--cor-texto-primario);
+  box-shadow: var(--sombra-sutil);
 }
 
 .botao-melhorar:hover,
 .botao-adaptar:hover {
-  background-color: var(--cor-superficie-hover);
-  border-color: var(--cor-texto-secundario);
+  border-color: var(--cor-destaque);
+  color: var(--cor-destaque);
 }
 
 .botao-adaptar.ativo {
-  background-color: var(--cor-superficie-hover);
+  background-color: var(--cor-destaque-suave);
   border-color: var(--cor-destaque);
   color: var(--cor-destaque);
 }
@@ -46,6 +47,7 @@
   background-color: var(--cor-destaque);
   border: 1px solid var(--cor-destaque);
   color: #ffffff;
+  box-shadow: var(--sombra-sutil);
 }
 
 .botao-exportar:hover {
@@ -54,8 +56,8 @@
 }
 
 .botao-acao:focus-visible {
-  outline: 2.5px solid var(--cor-destaque);
-  outline-offset: 1px;
+  outline: 2px solid var(--cor-destaque);
+  outline-offset: 2px;
 }
 
 @media (max-width: 48rem) {

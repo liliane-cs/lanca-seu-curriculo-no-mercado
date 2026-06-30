@@ -30,6 +30,7 @@
 .input-com-botao input:focus {
   outline: none;
   border-color: var(--cor-destaque);
+  box-shadow: 0 0 0 3px var(--cor-destaque-suave);
 }
 
 .botao-add-tag {
@@ -69,18 +70,18 @@
   display: inline-flex;
   align-items: center;
   gap: var(--espaco-xs);
-  padding: 0.375rem 0.625rem;
-  background-color: var(--cor-fundo);
-  color: var(--cor-texto-primario);
+  padding: 0.375rem 0.75rem;
+  background-color: var(--cor-destaque-suave);
+  color: var(--cor-destaque);
   font-size: 0.8125rem; /* Texto auxiliar: 0.8125rem, cor secundária */
   font-weight: 500;
-  border-radius: var(--raio-borda);
+  border-radius: 999px;
   transition: background-color var(--transicao);
-  border: 1px solid var(--cor-divisor);
+  border: 1px solid transparent;
 }
 
 .tag-habilidade:hover {
-  background-color: var(--cor-superficie-hover);
+  border-color: var(--cor-destaque);
 }
 
 .botao-remover-tag {

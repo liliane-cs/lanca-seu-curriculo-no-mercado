@@ -13,12 +13,13 @@
   background-color: var(--cor-superficie);
   border: 1px solid var(--cor-divisor);
   border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-sutil);
   position: relative;
   transition: border-color var(--transicao);
 }
 
 .item-experiencia:hover {
-  border-color: var(--cor-texto-secundario);
+  border-color: var(--cor-destaque);
 }
 
 .header-item {
@@ -128,8 +129,8 @@
 }
 
 .botao-adicionar:hover {
-  background-color: var(--cor-superficie-hover);
-  border-color: var(--cor-texto-secundario);
+  border-color: var(--cor-destaque);
+  color: var(--cor-destaque);
 }
 
 .botao-adicionar:focus-visible {
